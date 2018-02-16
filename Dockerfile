@@ -8,6 +8,8 @@ WORKDIR /opt
 RUN git clone https://github.com/DaniAlic/cursos.git WORKDIR /opt/cursos
 RUN mvn package
 
+
+
 # --> RUN
 FROM openjdk:8-jre-alpine
 LABEL autor = "Daniel Jimenez"
@@ -19,3 +21,6 @@ ln -s wildfly-10.1.0.Final wildfly
 RUN ./wildfly/bin/add-user.sh experto experto --silent
 COPY --from=0 /opt/cursos/target/cursos.war ./wildfly/standalone/deployments
 CMD ["/opt/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement","0.0.0.0"]
+
+
+
