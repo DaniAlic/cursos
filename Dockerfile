@@ -5,7 +5,8 @@ RUN apk update
 RUN apk add maven
 RUN apk add git
 WORKDIR /opt
-RUN git clone https://github.com/DaniAlic/cursos.git WORKDIR /opt/cursos
+RUN git clone https://github.com/DaniAlic/cursos.git 
+WORKDIR /opt/cursos
 RUN mvn package
 
 
